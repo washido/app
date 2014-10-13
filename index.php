@@ -54,11 +54,11 @@ $app->group('/app', function() use ($app){
     /**
      * Recomenda um filme para o usuário
      */
-    $app->get('/recommend', function() use ($app){
+    $app->post('/recommend', function() use ($app){
     
         $Mongo        = Mongodbclass::conn();
         $maisProximos = array();
-        $userID       = "938461372846776"; //$_POST['userID'];
+        $userID       = $_POST['userID'];
         
         /* Busca os dados do usuário logado */
         $user   = $Mongo->findOne(array('_id' => $userID));
@@ -91,8 +91,7 @@ $app->group('/app', function() use ($app){
         /* Verifica quais filmes o usuário mais próximo possui que eu não */
         $diff = array_diff( $userProximo['movies'], $user['movies'] );
 
-        echo '<pre>';
-        print_r($diff);
+        echo json_encode(array('items' => $diff, 'success' => true));
 
     });
 

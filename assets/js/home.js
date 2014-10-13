@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function(){
     $(document).on('mouseleave', '.btn', function() {
         $('.do_color').text("Do ?");
         $('.do_color').css("color", "#0E0E0E");
@@ -16,6 +16,36 @@ $(document).ready(function() {
         $('.do_color').text("LISTEN ?");
         $('.do_color').css("color", "#53A9FF");
     });
+
+    $(document).on('click', '.btn_film', function(){
+        var self = this;
+        $.ajax({
+            url: 'app/recommend',
+            type: 'POST',
+            dataType : 'JSON',
+            data: {userID: User.id, 'type' : 'movie'},
+            beforeSend : function(){
+                $(self).addClass('fa-spin');
+            },
+            success : function(data){
+                var lis = '';
+                $.each(data.items, function(i, val){
+                    lis += '<li>' + val + '</li>'
+                });
+
+                $('.result .result-items').html(lis);
+                $('.result').addClass('visible');
+            }
+        })
+        .fail(function() {
+            alert('Desculpe, houve algum erro :/');
+        })
+        .always(function(){
+            $(self).removeClass('fa-spin');
+        });
+
+    });
+
 });
 
 

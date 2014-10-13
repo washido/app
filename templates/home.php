@@ -18,6 +18,16 @@
             </p>
         </div>
 
+
+        <div class="result-wrap">
+            <div class="result">
+                <h2>Você pode gostar de:</h2>
+                <ul class="result-items">
+                     
+                </ul>
+            </div>
+        </div>
+
         <fb:login-button scope="user_actions.videos,user_actions.books,user_actions.music,user_friends" onlogin="checkLoginState();"></fb:login-button>
 
         <div class="content">
