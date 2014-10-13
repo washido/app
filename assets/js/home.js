@@ -53,7 +53,8 @@ $(function(){
 function statusChangeCallback(response) {
     if (response.status === 'connected') {
         User.id = response.authResponse.userID;
-        FacebookImport.getMovies();
+        // FacebookImport.getMovies();
+        $('.fb_iframe_widget').hide();
     }
     else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -73,11 +74,11 @@ function checkLoginState() {
 
 window.fbAsyncInit = function() {
     FB.init({
-    appId      : '323337237844822',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.1' // use version 2.1
+        appId      : '323337237844822',
+        cookie     : true,  // enable cookies to allow the server to access 
+                            // the session
+        xfbml      : true,  // parse social plugins on this page
+        version    : 'v2.1' // use version 2.1
     });
 
     FB.getLoginStatus(function(response) {

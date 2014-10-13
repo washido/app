@@ -50,6 +50,5 @@ var FacebookImport = {
         .fail(function() {
             alert('Erro ao importar dados');
         })
-    },    
-
+    },
 };

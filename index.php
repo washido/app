@@ -79,14 +79,14 @@ $app->group('/app', function() use ($app){
         /* Ordena o array de mais próximos */
         asort($maisProximos);
         
-        /* Posiciona o cursos no ultimo elemento */
+        /* Posiciona o cursor no ultimo elemento */
         end($maisProximos);
         
         /* Pega o indice da ultima posição do array (uid) */
         $index = key($maisProximos);
 
         /* Procura o usuário mais próximo */
-        $userProximo = $Mongo->findOne(array('_id' => $index));
+        $userProximo = $Mongo->findOne(array('_id' => (string)$index));
 
         /* Verifica quais filmes o usuário mais próximo possui que eu não */
         $diff = array_diff( $userProximo['movies'], $user['movies'] );
