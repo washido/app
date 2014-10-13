@@ -41,5 +41,27 @@ class Items {
         return $this->type;
     }
 
+    public function recomendar()
+    {
+        
+        
+
+        /**
+         * Procura por todos os filmes de todos usuários
+         */
+
+        foreach ($users as $u):
+            if($usuarioDados['email'] !== $u['email']){
+                echo '<pre>' . print_r($u['movies'], true) . '</pre>';
+
+                $intersect = sizeof( array_intersect( $u['movies'], $usuarioDados['movies'] ) );
+                $union     = sizeof( array_unique( array_merge( $u['movies'], $usuarioDados['movies'] ) ) );
+                $res       = $intersect / $union;
+                echo 'Indice de similaridade: ' . $res . '<hr>';
+                $maisProximos[$u['_id']] = $res;
+            }
+        endforeach;
+
+    }
    
 }

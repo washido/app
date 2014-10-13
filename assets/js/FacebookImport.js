@@ -33,15 +33,23 @@ var FacebookImport = {
 
     saveMovies : function(){
         $.ajax({
-            url: 'app/movies',
+            url: 'app/import',
             type: 'POST',
             data: { movies : User.movies, userID : User.id },
             success : function(data){
                 User.movies = [];
                 console.log(data);
-                $('body').removeClass('has-loader');
-            },
-        });
-    },
+            }
+        })
+        .always(function(){
+            $('body').removeClass('has-loader');
+        })
+        .done(function() {
+            alert('Dados importados com sucesso');
+        })
+        .fail(function() {
+            alert('Erro ao importar dados');
+        })
+    },    
 
 };

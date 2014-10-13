@@ -31,15 +31,12 @@ $app->get('/', function() use ($app){
 $app->group('/app', function() use ($app){
 
     /**
-     * 
+     * Efetua importação dos dados
      */
-    $app->get('/auth', function() use($app){
-        echo 'oi';
-    });
-
-    $app->post('/movies', function() use($app){
-        if ( isset($_POST['movies']) ) 
+    $app->post('/import', function() use($app){
+        if ( isset($_POST['userID']) ) 
         {
+            /* Por enquanto apenas filmes */
             $Items = new Items('movies');
             $User  = new User;
 
@@ -52,6 +49,51 @@ $app->group('/app', function() use ($app){
         {
             $app->halt(400);
         }
+    });
+
+    /**
+     * Recomenda um filme para o usuário
+     */
+    $app->get('/recommend', function() use ($app){
+    
+        $Mongo        = Mongodbclass::conn();
+        $maisProximos = array();
+        $userID       = "938461372846776"; //$_POST['userID'];
+        
+        /* Busca os dados do usuário logado */
+        $user   = $Mongo->findOne(array('_id' => $userID));
+        
+        /* Busca todos os outros usuários do sistema */
+        $users  = $Mongo->find(array("_id" => array('$ne' => $userID)));
+    
+        /* Percorre todos os usuários e encontra o mais próximo */
+        foreach ($users as $u):
+            
+            $intersect = sizeof( array_intersect( $u['movies'], $user['movies'] ) );
+            $union     = sizeof( array_unique( array_merge( $u['movies'], $user['movies'] ) ) );
+            $res       = $intersect / $union;
+            $maisProximos[$u['_id']] = $res;
+            
+        endforeach;
+
+        /* Ordena o array de mais próximos */
+        asort($maisProximos);
+        
+        /* Posiciona o cursos no ultimo elemento */
+        end($maisProximos);
+        
+        /* Pega o indice da ultima posição do array (uid) */
+        $index = key($maisProximos);
+
+        /* Procura o usuário mais próximo */
+        $userProximo = $Mongo->findOne(array('_id' => $index));
+
+        /* Verifica quais filmes o usuário mais próximo possui que eu não */
+        $diff = array_diff( $userProximo['movies'], $user['movies'] );
+
+        echo '<pre>';
+        print_r($diff);
+
     });
 
 });

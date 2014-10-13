@@ -13,7 +13,8 @@ Class Mongodbclass {
   
     public static function conn()
     {
-        $m   = new MongoClient("mongodb://" . self::dbUser . ":" . self::dbPass . "@" . self::dbHost . ":" . self::dbPort);
+        // $m   = new MongoClient("mongodb://" . self::dbUser . ":" . self::dbPass . "@" . self::dbHost . ":" . self::dbPort);
+        $m   = new MongoClient();
         $db  = $m->selectDB(self::dbName);
         $col = new MongoCollection($db, 'users');
 
