@@ -1,8 +1,6 @@
 var User = {
-
     id     : '',
     movies : []
-
 };
 
 var FacebookImport = {
