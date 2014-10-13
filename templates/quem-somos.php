@@ -14,13 +14,106 @@
             <h1 class="title-sobre"><a href="index.php">What Should I Do?</a></h1>
             <br />
             <div class="pure-g-r">
-                <div class="pure-u-1-24 pure-u-sm-3-4 sobre">
+                <div class="pure-u-1-24 pure-u-sm-3-4 quem-somos">
                     <h2 class="h2-sobre">Quem Somos</h2>
-                    <p class="p-sobre"></p>
-                    <p class="p-sobre">Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.</p>
-                    <p class="p-sobre">Casamentiss faiz malandris se pirulitá, Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer Ispecialista im mé intende tudis nuam golada, vinho, uiski, carirí, rum da jamaikis, só num pode ser mijis. Adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                    <p class="p-sobre">Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra nisl condimentum ut. Donec eget justis enim. Atirei o pau no gatis. Viva Forevis aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Copo furadis é disculpa de babadis, arcu quam euismod magna, bibendum egestas augue arcu ut est. Delegadis gente finis. In sit amet mattis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis. Pellentesque viverra accumsan ipsum elementum gravidis.</p>
-                    <p class="p-sobre">Forevis aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Copo furadis é disculpa de babadis, arcu quam euismod magna, bibendum egestas augue arcu ut est. Etiam ultricies tincidunt ligula, sed accumsan sapien mollis et. Delegadis gente finis. In sit amet mattis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis. Pellentesque viverra accumsan ipsum elementum gravida. Quisque vitae metus id massa tincidunt iaculis sed sed purus. Vestibulum viverra lobortis faucibus. Vestibulum et turpis.</p>
+
+                    <div class="pure-g-r">
+                        <div class="pure-u-3-8 text-right">
+                            <img src="assets/img/bruno.jpg" alt="" class="img-circle">
+                        </div>
+
+                        <div class="pure-u-5-8">
+                            <h3 class="about-title">
+                                Bruno Rauber
+                                <small>Analista de Testes</small>
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto exercitationem nisi molestias minus dignissimos, quos optio natus consequatur at quas quisquam nobis obcaecati impedit neque totam nam! Sint, nulla, ipsa.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pure-g-r">
+                        <div class="pure-u-3-8 text-right">
+                            <img src="assets/img/cassio.jpg" alt="" class="img-circle">
+                        </div>
+
+                        <div class="pure-u-5-8">
+                            <h3 class="about-title">
+                                Cassio Couto
+                                <small>Gerente de projeto</small>
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto exercitationem nisi molestias minus dignissimos, quos optio natus consequatur at quas quisquam nobis obcaecati impedit neque totam nam! Sint, nulla, ipsa.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pure-g-r">
+                        <div class="pure-u-3-8 text-right">
+                            <img src="assets/img/fraga.jpg" alt="" class="img-circle">
+                        </div>
+
+                        <div class="pure-u-5-8">
+                            <h3 class="about-title">
+                                Guilherme Fraga
+                                <small>Suporte</small>
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto exercitationem nisi molestias minus dignissimos, quos optio natus consequatur at quas quisquam nobis obcaecati impedit neque totam nam! Sint, nulla, ipsa.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pure-g-r">
+                        <div class="pure-u-3-8 text-right">
+                            <img src="assets/img/viana.jpg" alt="" class="img-circle">
+                        </div>
+
+                        <div class="pure-u-5-8">
+                            <h3 class="about-title">
+                                Guilherme Viana
+                                <small>Back-end developer</small>
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto exercitationem nisi molestias minus dignissimos, quos optio natus consequatur at quas quisquam nobis obcaecati impedit neque totam nam! Sint, nulla, ipsa.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pure-g-r">
+                        <div class="pure-u-3-8 text-right">
+                            <img src="assets/img/icaro.jpg" alt="" class="img-circle">
+                        </div>
+
+                        <div class="pure-u-5-8">
+                            <h3 class="about-title">
+                                Ícaro Heimig
+                                <small>Front-end developer</small>
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto exercitationem nisi molestias minus dignissimos, quos optio natus consequatur at quas quisquam nobis obcaecati impedit neque totam nam! Sint, nulla, ipsa.
+                            </p>
+                        </div>
+                    </div>
+        
+                    <div class="pure-g-r">
+                        <div class="pure-u-3-8 text-right">
+                            <img src="assets/img/wagner.jpg" alt="" class="img-circle">
+                        </div>
+
+                        <div class="pure-u-5-8">
+                            <h3 class="about-title">
+                                Wagner Bauer
+                                <small>Analista de sistemas</small>
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto exercitationem nisi molestias minus dignissimos, quos optio natus consequatur at quas quisquam nobis obcaecati impedit neque totam nam! Sint, nulla, ipsa.
+                            </p>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
