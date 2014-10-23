@@ -36,12 +36,28 @@ $app->group('/app', function() use ($app){
     $app->post('/import', function() use($app){
         if ( isset($_POST['userID']) ) 
         {
-            /* Por enquanto apenas filmes */
-            $Items = new Items('movies');
-            $User  = new User;
 
-            $Items->setItems($_POST['movies']);
-            $User->setMovies($Items);
+            print_r($_POST);
+            die();
+
+            $User  = new User;
+            $Items = new Items($_POST['type']);
+            $Items->setItems($_POST[$_POST['type']]);
+
+            switch ($_POST['type']) {
+                case 'movies':
+                    $User->setMovies($Items);
+                    break;
+                
+                case 'musics':
+                    $User->setMusics($Items);
+                    break;
+
+                case 'books':
+                    $User->setBooks($Items);
+                    break;
+            }
+
             $User->setId($_POST['userID']);
             $User->save();
         }

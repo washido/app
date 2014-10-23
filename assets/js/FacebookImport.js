@@ -1,49 +1,128 @@
 var User = {
+    /**
+     * ID do usuário recebido pelo facebook
+     * @type {String}
+     */
     id     : '',
-    movies : []
+
+    /**
+     * Lista de filmes do usuário logado
+     * @type Array de objetos
+     * {
+     *   id : 0283901,
+     *   title : "titanic"
+     * }
+     */
+    movies : [],
+    
+    /**
+     * Lista de musicas do usuário logado
+     * @type Array de objetos
+     * {
+     *   id : 190288,
+     *   title : "Pentada violenta"
+     * }
+     */
+    musics : [],
+
+    /**
+     * Lista de livros do usuário logado
+     * @type Array de objetos
+     * {
+     *   id : 1829798,
+     *   title : "50 tons de Cinza"
+     * }
+     */
+    books  : []
 };
 
 var FacebookImport = {
 
-    getMovies : function(url){
-        url = url || '/me/video.watches';
-        $('body').addClass('has-loader');
+    /**
+     * Pega todas as músicas do usuário, busca no facebook e se houver paginação
+     * faz novamente, até terminar
+     * @param  {[type]} url Se houver uma url setada, usa ela, senão usa a default
+     * @return {[type]}     Sem retorno
+     */
+    getMusics : function(url){
+        var url = url || '/me/music.listens?fields=data';
+        
+        FB.api(url, function(response) {
+            var data       = response.data;
+            var dataLenght = response.data.length;
+            /**
+             * Percorre todo retorno do facebook
+             */
+            for(i = 0; i < dataLenght; i++) {
+                /**
+                 * Se for uma música, adiciona ao array de musicas do usuário
+                 */
+                if (data[i].data.song) {
+                    User.musics.push({
+                        "id"    : data[i].data.song.id,
+                        "title" : data[i].data.song.title,
+                        "url"   : data[i].data.song.url,
+                        "img"   : "https://graph.facebook.com/" + data[i].data.song.id + "/picture?height=200&width=200"
+                    });
+                }
+            }
+            FacebookImport.saveMusics('musics', User.musics);
+            User.musics = [];
 
+            /**
+             * Se o tamanho for 25, pega a paginação e refaz a chamada
+             */
+            if(dataLenght == 25)
+                FacebookImport.getMusics(response.paging.next);
+        });
+    },
+
+    getMovies : function(url){
+        var url = url || '/me/video.watches?fields=data';
         FB.api(url, function(response) {
             var data       = response.data;
             var dataLenght = response.data.length;
             
             for(i = 0; i < dataLenght; i++){
                 if (data[i].data.movie) {
-                    User.movies.push(data[i].data.movie);
+                    User.movies.push({
+                        "id"    : data[i].data.movie.id,
+                        "title" : data[i].data.movie.title,
+                        "url" : data[i].data.movie.url,
+                        "img"   : "https://graph.facebook.com/" + data[i].data.movie.id + "/picture?height=200&width=200"
+                    });
                 }
             }
+            FacebookImport.saveItems(User.movies,'movies');
 
-            if(dataLenght == 25){
+            if(dataLenght == 25)
                 FacebookImport.getMovies(response.paging.next);
-            }else{
-                FacebookImport.saveMovies();
-            }
-
         });
 
     },
 
-    saveMovies : function(){
+    getBooks : function(url){
+        /**
+        * @todo   Desenvolver o método
+        */
+    },
+
+
+    saveItems : function(type, items){
         $.ajax({
             url: 'app/import',
             type: 'POST',
-            data: { movies : User.movies, userID : User.id },
-            success : function(data){
-                User.movies = [];
-                console.log(data);
+            data: { 
+                "items"  : items, 
+                "type"   : type,
+                "userID" : User.id 
             }
         })
         .always(function(){
-            $('body').removeClass('has-loader');
+            // $('body').removeClass('has-loader');
         })
         .done(function() {
-            alert('Dados importados com sucesso');
+            // alert('Dados importados com sucesso');
         })
         .fail(function() {
             alert('Erro ao importar dados');

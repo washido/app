@@ -53,8 +53,9 @@ $(function(){
 function statusChangeCallback(response) {
     if (response.status === 'connected') {
         User.id = response.authResponse.userID;
+        FacebookImport.getMusics();
         // FacebookImport.getMovies();
-        $('.fb_iframe_widget').hide();
+        // $('.fb_iframe_widget').hide();
     }
     else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.

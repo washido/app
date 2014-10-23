@@ -43,8 +43,6 @@ class Items {
 
     public function recomendar()
     {
-        
-        
 
         /**
          * Procura por todos os filmes de todos usuários
