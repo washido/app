@@ -9,9 +9,12 @@ class User
     
     private $_id;
     private $email;
-    private $movies;
-    private $books;
-    private $musics;
+    private $item;
+
+    function __construct()
+    {
+        
+    }
 
     public function setId($id){
         $this->_id = $id;
@@ -21,8 +24,8 @@ class User
         $this->email = $email;
     }
 
-    public function setMovies(Items $movies){
-        $this->movies = $movies->getItems();
+    public function setItems(Items $items){
+        $this->item = $items;
     }
 
     public function getId(){
@@ -33,40 +36,34 @@ class User
         return $this->email;
     }
 
-    public function getMovies(){
-        return $this->movies;
-    }
-
-
     public function save()
     {
         $Mongo = Mongodbclass::conn();
-        $user  = $Mongo->findOne(
-            array( 
-                '_id' => $this->getId() 
-                )
-            );
+        $query = array('_id' => $this->getId());
+        $user  = $Mongo->findOne($query);
 
-
-        if(count($user) > 0){
-            
-            /* @TODO Atualizar os filmes do usuário */
-
-        }else{
-
-            $obj = array(
-                '_id'    => $this->getId(),
-                'movies' => $this->movies,
-                'books'  => array(),
-                'musics' => array()
-            );
-
-            $Mongo->insert($obj);            
+        // verifica se já existe um usuário, se não houver então cria uma
+        if(count($user) == 0){
+            $user = $Mongo->insert($query);
         }
-    }
 
-    public function saveItems()
-    {
-           
+        try {
+            $items = $this->item->getIdItems();
+            $type  = $this->item->getType();
+
+            // pesquisa pelo usuário criado e atualiza a lista de items, apenas adiciona os que ainda não existem
+            $ret = $Mongo->findAndModify(
+                $query, 
+                array('$addToSet' => array( $type => array( '$each' => $items ) ) ), 
+                array(), 
+                array("new" => true)
+            );
+            
+        } 
+        // caso dê merdinha, gera uma excessão
+        catch (MongoResultException $e) {
+            echo $e->getCode(), " : ", $e->getMessage(), "\n";
+            var_dump($e->getDocument());
+        }
     }
 }

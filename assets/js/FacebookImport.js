@@ -59,7 +59,7 @@ var FacebookImport = {
                  */
                 if (data[i].data.song) {
                     User.musics.push({
-                        "id"    : data[i].data.song.id,
+                        "_id"    : data[i].data.song.id,
                         "title" : data[i].data.song.title,
                         "url"   : data[i].data.song.url,
                         "img"   : "https://graph.facebook.com/" + data[i].data.song.id + "/picture?height=200&width=200"
@@ -86,7 +86,7 @@ var FacebookImport = {
             for(i = 0; i < dataLenght; i++){
                 if (data[i].data.movie) {
                     User.movies.push({
-                        "id"    : data[i].data.movie.id,
+                        "_id"    : data[i].data.movie.id,
                         "title" : data[i].data.movie.title,
                         "url" : data[i].data.movie.url,
                         "img"   : "https://graph.facebook.com/" + data[i].data.movie.id + "/picture?height=200&width=200"

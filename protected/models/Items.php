@@ -3,6 +3,10 @@
 
 class Items {
 
+    const cMUSIC = 'musics';
+    const cMOVIE = 'movies';
+    const cBOOK  = 'books';
+    
     private $items = array();
     private $type;
 
@@ -23,6 +27,15 @@ class Items {
     public function getItems()
     {
         return $this->items;
+    }
+
+    public function getIdItems()
+    {
+        $listItems = array();
+        foreach($this->items as $i){
+            $listItems[] = $i['_id'];
+        }
+        return $listItems;
     }
 
     public function setType($type)
@@ -61,20 +74,19 @@ class Items {
     }
 
     /**
-     * Salva os itens que tem em memória
-     * @return [type] [description]
+     * Salva os itens que tem em memória em suas collections
      */
     public function save()
     {
         $Mongo = Mongodbclass::conn($this->type);
 
-        foreach ($this->items as $item) {
-            $res = $Mongo->findOne(array('id' => $item['id']));
+        foreach ($this->items as $item):
+            $res = $Mongo->findOne(array('_id' => $item['_id']));
 
-            if( count($res) == 0 ){
-                $Mongo->insert($res);
-            }
-        }
+            if(count($res) == 0)
+                $Mongo->insert($item);
+        
+        endforeach;
     }
    
 }

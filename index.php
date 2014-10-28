@@ -34,35 +34,19 @@ $app->group('/app', function() use ($app){
      * Efetua importação dos dados
      */
     $app->post('/import', function() use($app){
-        if ( isset($_POST['userID']) ) 
-        {
+        $id    = isset($_POST['userID']) ? $_POST['userID'] : NULL;
+        $type  = isset($_POST['type'])   ? $_POST['type']   : NULL;
+        $items = isset($_POST['items'])  ? $_POST['items']  : NULL;
 
-            
-            $User  = new User;
-            $Items = new Items($_POST['type']);
-            $Items->setItems($_POST['items']);
+        if ( $id !== NULL && is_array($items) && ( $type === Items::cMUSIC || $type === Items::cMOVIE || $type === Items::cBOOK) ) 
+        {
+            $Items = new Items($type);
+            $Items->setItems($items);
             $Items->save();
 
-            print_r($_POST);
-            print_r($Items);
-            die();
-
-
-            switch ($_POST['type']) {
-                case 'movies':
-                    $User->setMovies($Items);
-                    break;
-                
-                case 'musics':
-                    $User->setMusics($Items);
-                    break;
-
-                case 'books':
-                    $User->setBooks($Items);
-                    break;
-            }
-
-            $User->setId($_POST['userID']);
+            $User  = new User;
+            $User->setItems($Items);
+            $User->setId($id);
             $User->save();
         }
         else
