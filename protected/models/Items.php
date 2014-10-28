@@ -16,13 +16,7 @@ class Items {
     {
         if(is_array($items))
         {
-            $itemsAux = array();
-            foreach($items as $i)
-            {
-                if(isset($i['title']))
-                    $itemsAux[] = $i['title'];
-            }
-            $this->items = $itemsAux;
+            $this->items = $items;
         }
     }
 
@@ -41,6 +35,10 @@ class Items {
         return $this->type;
     }
 
+    /**
+     * [recomendar description]
+     * @return [type] [description]
+     */
     public function recomendar()
     {
 
@@ -60,6 +58,23 @@ class Items {
             }
         endforeach;
 
+    }
+
+    /**
+     * Salva os itens que tem em memória
+     * @return [type] [description]
+     */
+    public function save()
+    {
+        $Mongo = Mongodbclass::conn($this->type);
+
+        foreach ($this->items as $item) {
+            $res = $Mongo->findOne(array('id' => $item['id']));
+
+            if( count($res) == 0 ){
+                $Mongo->insert($res);
+            }
+        }
     }
    
 }

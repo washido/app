@@ -11,19 +11,14 @@ Class Mongodbclass {
     private static $instance;
     private static $db;
   
-    public static function conn()
+    public static function conn($col = 'users')
     {
         // $m   = new MongoClient("mongodb://" . self::dbUser . ":" . self::dbPass . "@" . self::dbHost . ":" . self::dbPort);
         $m   = new MongoClient();
         $db  = $m->selectDB(self::dbName);
-        $col = new MongoCollection($db, 'users');
+        $col = new MongoCollection($db, $col);
 
         return $col;
     }
-
-
-
-
-
 
 }

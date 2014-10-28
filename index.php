@@ -37,12 +37,16 @@ $app->group('/app', function() use ($app){
         if ( isset($_POST['userID']) ) 
         {
 
-            print_r($_POST);
-            die();
-
+            
             $User  = new User;
             $Items = new Items($_POST['type']);
-            $Items->setItems($_POST[$_POST['type']]);
+            $Items->setItems($_POST['items']);
+            $Items->save();
+
+            print_r($_POST);
+            print_r($Items);
+            die();
+
 
             switch ($_POST['type']) {
                 case 'movies':

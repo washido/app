@@ -66,9 +66,9 @@ var FacebookImport = {
                     });
                 }
             }
-            FacebookImport.saveMusics('musics', User.musics);
+            FacebookImport.saveItems('musics', User.musics);
             User.musics = [];
-
+            
             /**
              * Se o tamanho for 25, pega a paginação e refaz a chamada
              */
@@ -93,7 +93,8 @@ var FacebookImport = {
                     });
                 }
             }
-            FacebookImport.saveItems(User.movies,'movies');
+            FacebookImport.saveItems('movies', User.movies);
+            User.movies = [];
 
             if(dataLenght == 25)
                 FacebookImport.getMovies(response.paging.next);
