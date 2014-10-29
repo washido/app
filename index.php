@@ -64,19 +64,23 @@ $app->group('/app', function() use ($app){
     
         $Mongo        = Mongodbclass::conn();
         $maisProximos = array();
-        $userID       = $_POST['userID'];
+        $userID       = $_SESSION['id'];
+        $type         = $_POST['type'];
         
         /* Busca os dados do usuário logado */
         $user   = $Mongo->findOne(array('_id' => $userID));
         
-        /* Busca todos os outros usuários do sistema */
-        $users  = $Mongo->find(array("_id" => array('$ne' => $userID)));
-    
+        /* Busca todos os outros usuários do sistema, mas apenas o tipo escolhido */
+        $users  = $Mongo->find(
+            array("_id" => array('$ne' => $userID), $type => array('$exists' => true)), 
+            array($type => true)
+        );
+        
         /* Percorre todos os usuários e encontra o mais próximo */
         foreach ($users as $u):
-            
-            $intersect = sizeof( array_intersect( $u['movies'], $user['movies'] ) );
-            $union     = sizeof( array_unique( array_merge( $u['movies'], $user['movies'] ) ) );
+            // print_r($u);
+            $intersect = sizeof( array_intersect( $u[$type], $user[$type] ) );
+            $union     = sizeof( array_unique( array_merge( $u[$type], $user[$type] ) ) );
             $res       = $intersect / $union;
             $maisProximos[$u['_id']] = $res;
             
@@ -95,9 +99,26 @@ $app->group('/app', function() use ($app){
         $userProximo = $Mongo->findOne(array('_id' => (string)$index));
 
         /* Verifica quais filmes o usuário mais próximo possui que eu não */
-        $diff = array_diff( $userProximo['movies'], $user['movies'] );
+        try {
+            $diff   = array_diff( $userProximo[$type], $user[$type] );
+            $Item   = Mongodbclass::conn($type);
+            
+            $i = $Item->find(
+                array( "_id" =>  array('$in' => $diff ) )
+            );
 
-        echo json_encode(array('items' => $diff, 'success' => true));
+            $diff = array();
+            foreach ($i as $value) {
+                $diff[] = $value;
+            }
+
+            $return = json_encode(array('items' => $diff, 'success' => true));
+            
+        } catch (Exception $e) {
+            $return = json_encode(array('items' => array(), 'success' => false));
+        }
+            
+        echo $return;
 
     });
 

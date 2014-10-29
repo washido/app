@@ -37,17 +37,17 @@
             <br />
             <div class="pure-g-r">
                 <div class="pure-u-1-6">
-                    <a href="#" class="btn_music btn"><i class="fa fa-music fa-5x fa-border"></i></a>
+                    <a href="javascript:void(0)" data-item="musics" class="btn_music btn"><i class="fa fa-music fa-5x fa-border"></i></a>
                 </div>
                 
                 <div class="pure-u-1-6">
                     <div class="film-center">
-                        <a href="#" class="btn_film btn"><i class="fa fa-film fa-5x fa-border"></i></a>
+                        <a href="javascript:void(0)" data-item="movies" class="btn_film btn"><i class="fa fa-film fa-5x fa-border"></i></a>
                     </div>
                 </div>
                 
                 <div class="pure-u-1-6">
-                    <a href="#" class="btn_book btn"><i class="fa fa-book fa-5x fa-border"></i></a>
+                    <a href="javascript:void(0)" data-item="books" class="btn_book btn"><i class="fa fa-book fa-5x fa-border"></i></a>
                 </div>
             </div>
             <br />

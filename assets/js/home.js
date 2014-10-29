@@ -17,20 +17,20 @@ $(function(){
         $('.do_color').css("color", "#53A9FF");
     });
 
-    $(document).on('click', '.btn_film', function(){
+    $(document).on('click', '.btn_film, .btn_book, .btn_music', function(){
         var self = this;
         $.ajax({
             url: 'app/recommend',
             type: 'POST',
             dataType : 'JSON',
-            data: {userID: User.id, 'type' : 'movie'},
+            data: {userID: User.id, 'type' : $(self).data('item') },
             beforeSend : function(){
                 $(self).addClass('fa-spin');
             },
             success : function(data){
                 var lis = '';
                 $.each(data.items, function(i, val){
-                    lis += '<li>' + val + '</li>'
+                    lis += '<li><img src="'+ val.img +'" />' + val.title + '</li>'
                 });
 
                 $('.result .result-items').html(lis);
@@ -53,7 +53,7 @@ $(function(){
 function statusChangeCallback(response) {
     if (response.status === 'connected') {
         User.id = response.authResponse.userID;
-        FacebookImport.getItems();
+        // FacebookImport.getItems();
     }
     else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
