@@ -53,7 +53,7 @@ $(function(){
 function statusChangeCallback(response) {
     if (response.status === 'connected') {
         User.id = response.authResponse.userID;
-        // FacebookImport.getItems();
+        FacebookImport.getItems();
     }
     else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
