@@ -37,7 +37,7 @@
             <br />
             <div class="pure-g-r">
                 <div class="pure-u-1-6">
-                    <a href="#" class="btn_music btn"><i class="fa disabled fa-music fa-5x fa-border"></i></a>
+                    <a href="#" class="btn_music btn"><i class="fa fa-music fa-5x fa-border"></i></a>
                 </div>
                 
                 <div class="pure-u-1-6">
@@ -47,7 +47,7 @@
                 </div>
                 
                 <div class="pure-u-1-6">
-                    <a href="#" class="btn_book btn"><i class="fa disabled fa-book fa-5x fa-border"></i></a>
+                    <a href="#" class="btn_book btn"><i class="fa fa-book fa-5x fa-border"></i></a>
                 </div>
             </div>
             <br />

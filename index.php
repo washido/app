@@ -106,17 +106,21 @@ $app->group('/app', function() use ($app){
 $app->get('/me(/:type)', function($type = null) use ($app){
     if (isset($type)) {
         $User = Mongodbclass::conn(); 
-        
         $res = $User->findOne(
             array('_id' => $_SESSION['id']),
             array($type => true)
         );
     
-        $Items = Mongodbclass::conn($type); 
-        $i = $Items->find(
-            array( "_id" =>  array('$in' => $res[$type] ) )
-        );
+        try {
+            
+            $Items = Mongodbclass::conn($type); 
+            $i = $Items->find(
+                array( "_id" =>  array('$in' => $res[$type] ) )
+            );
 
+        } catch (Exception $e) {
+            $i = array();            
+        }
         $app->render('meusItems.php', array('i' => $i, 'type' => $type));
     }
 });

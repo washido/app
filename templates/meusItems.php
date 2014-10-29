@@ -7,15 +7,20 @@
         <link rel="stylesheet" href="../assets/css/pure-min.css">
         <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="../assets/css/style.css">
-        <link rel="stylesheet" href="../assets/css/grids-responsive-min.css">
+        <link rel="stylesheet" href="../assets/css/grids-responsive-min.css">   
+        <style>.active{ text-decoration: underline; }</style>
     </head>
     <body>
         <div class="content">
-            <h1 class="title-sobre"><a href="index.php">What Should I Do?</a></h1>
-            <br />
+            <!-- <h1 class="title-sobre"><a href="index.php">Meus items</a></h1> -->
+            <h2>
+                    <a class="<?php echo $type=="musics" ? 'active' : '' ?>" href="../me/musics">Músicas</a> -
+                    <a class="<?php echo $type=="books" ? 'active' : '' ?>" href="../me/books">Livros</a> -
+                    <a class="<?php echo $type=="movies" ? 'active' : '' ?>" href="../me/movies">Filmes</a>
+            </h2>
+            <br>
             <div class="pure-g-r">
                 <div class="pure-u-1-24 pure-u-sm-3-4 quem-somos">
-                    <h2 class="h2-sobre">Meus Items - <?php echo $type ?></h2>
 
                     <?php foreach ($i as $value): ?>
                     <a href="<?php echo $value['url'] ?>" target="_blank">

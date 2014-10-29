@@ -8,14 +8,14 @@ $(function(){
         $('.do_color').text("WATCH ?");
         $('.do_color').css("color", "#FF5B5B");
     });
-    // $(document).on('mouseover', '.btn_book', function() {
-    //     $('.do_color').text("READ ?");
-    //     $('.do_color').css("color", "#1BCD35");
-    // });
-    // $(document).on('mouseover', '.btn_music', function() {
-    //     $('.do_color').text("LISTEN ?");
-    //     $('.do_color').css("color", "#53A9FF");
-    // });
+    $(document).on('mouseover', '.btn_book', function() {
+        $('.do_color').text("READ ?");
+        $('.do_color').css("color", "#1BCD35");
+    });
+    $(document).on('mouseover', '.btn_music', function() {
+        $('.do_color').text("LISTEN ?");
+        $('.do_color').css("color", "#53A9FF");
+    });
 
     $(document).on('click', '.btn_film', function(){
         var self = this;

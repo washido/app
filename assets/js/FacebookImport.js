@@ -117,23 +117,23 @@ var FacebookImport = {
     },
 
     getBooks : function(url){
-        var url = url || '/me/video.watches?fields=data';
+        var url = url || '/me/book.reads?fields=data';
         FB.api(url, function(response) {
             var data       = response.data;
             var dataLenght = response.data.length;
             
             for(i = 0; i < dataLenght; i++){
-                if (data[i].data.movie) {
-                    User.movies.push({
-                        "_id"    : data[i].data.movie.id,
-                        "title" : data[i].data.movie.title,
-                        "url" : data[i].data.movie.url,
-                        "img"   : "https://graph.facebook.com/" + data[i].data.movie.id + "/picture?height=200&width=200"
+                if (data[i].data.book) {
+                    User.books.push({
+                        "_id"    : data[i].data.book.id,
+                        "title" : data[i].data.book.title,
+                        "url" : data[i].data.book.url,
+                        "img"   : "https://graph.facebook.com/" + data[i].data.book.id + "/picture?height=200&width=200"
                     });
                 }
             }
-            FacebookImport.saveItems('movies', User.movies);
-            User.movies = [];
+            FacebookImport.saveItems('books', User.books);
+            User.books = [];
 
             if(dataLenght == 25)
                 FacebookImport.getMovies(response.paging.next);
