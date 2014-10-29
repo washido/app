@@ -33,10 +33,20 @@ var User = {
      *   title : "50 tons de Cinza"
      * }
      */
-    books  : []
+    books  : [],
+
 };
 
 var FacebookImport = {
+    imported : 0,
+
+    getItems : function(){
+        $(".importing-layer").show();
+        FacebookImport.getMusics();
+        FacebookImport.getMovies();
+        FacebookImport.getBooks();
+    },
+
 
     /**
      * Pega todas as músicas do usuário, busca no facebook e se houver paginação
@@ -74,6 +84,8 @@ var FacebookImport = {
              */
             if(dataLenght == 25)
                 FacebookImport.getMusics(response.paging.next);
+            else
+                FacebookImport.imported = FacebookImport.imported + 1;
         });
     },
 
@@ -98,15 +110,39 @@ var FacebookImport = {
 
             if(dataLenght == 25)
                 FacebookImport.getMovies(response.paging.next);
+            else
+                FacebookImport.imported = FacebookImport.imported + 1;
         });
 
     },
 
     getBooks : function(url){
-        /**
-        * @todo   Desenvolver o método
-        */
+        var url = url || '/me/video.watches?fields=data';
+        FB.api(url, function(response) {
+            var data       = response.data;
+            var dataLenght = response.data.length;
+            
+            for(i = 0; i < dataLenght; i++){
+                if (data[i].data.movie) {
+                    User.movies.push({
+                        "_id"    : data[i].data.movie.id,
+                        "title" : data[i].data.movie.title,
+                        "url" : data[i].data.movie.url,
+                        "img"   : "https://graph.facebook.com/" + data[i].data.movie.id + "/picture?height=200&width=200"
+                    });
+                }
+            }
+            FacebookImport.saveItems('movies', User.movies);
+            User.movies = [];
+
+            if(dataLenght == 25)
+                FacebookImport.getMovies(response.paging.next);
+            else
+                FacebookImport.imported = FacebookImport.imported + 1;
+        });
+
     },
+
 
 
     saveItems : function(type, items){
@@ -120,7 +156,10 @@ var FacebookImport = {
             }
         })
         .always(function(){
-            // $('body').removeClass('has-loader');
+            console.log(FacebookImport.imported);
+            if(FacebookImport.imported === 3){
+                $(".importing-layer").hide();
+            }
         })
         .done(function() {
             // alert('Dados importados com sucesso');

@@ -40,6 +40,8 @@ $app->group('/app', function() use ($app){
 
         if ( $id !== NULL && is_array($items) && ( $type === Items::cMUSIC || $type === Items::cMOVIE || $type === Items::cBOOK) ) 
         {
+            $_SESSION['id'] = $id;
+
             $Items = new Items($type);
             $Items->setItems($items);
             $Items->save();
@@ -99,6 +101,24 @@ $app->group('/app', function() use ($app){
 
     });
 
+});
+
+$app->get('/me(/:type)', function($type = null) use ($app){
+    if (isset($type)) {
+        $User = Mongodbclass::conn(); 
+        
+        $res = $User->findOne(
+            array('_id' => $_SESSION['id']),
+            array($type => true)
+        );
+    
+        $Items = Mongodbclass::conn($type); 
+        $i = $Items->find(
+            array( "_id" =>  array('$in' => $res[$type] ) )
+        );
+
+        $app->render('meusItems.php', array('i' => $i, 'type' => $type));
+    }
 });
 
 /**
