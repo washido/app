@@ -88,7 +88,7 @@ a {
 .div-music {
   margin: 0 auto;
   margin-bottom: 10px;
-  height: 120px;
+  height: 100px;
   border-color: #53A9FF;
   background-color: #53A9FF;
   
@@ -120,7 +120,7 @@ a {
 .div-book {
   margin: 0 auto;
   margin-bottom: 10px;
-  height: 120px;
+  height: 100px;
   border-color: #53A9FF;
   background-color: #53A9FF;
   
@@ -152,7 +152,7 @@ a {
 .div-film {
   margin: 0 auto;
   margin-bottom: 10px;
-  height: 120px;
+  height: 100px;
   border-color: #53A9FF;
   background-color: #53A9FF;
   
@@ -186,8 +186,6 @@ a {
 }
 
 .footer {
-  position: relative;
-  bottom: 0px;
   text-align: center;
   background-color: #000;
   color: #fff;
