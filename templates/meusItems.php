@@ -38,9 +38,9 @@
         
         <footer class="footer">
             <div class="footer-data">
-                <div class="footer-itens pure-u-4-6"><a href="sobre">Sobre</a></div>
-                <div class="footer-itens pure-u-4-6"><a href="quem-somos">Quem Somos</a></div>
-                <div class="footer-itens pure-u-4-6"><a href="contato">Contato</a></div>
+                <div class="footer-itens pure-u-4-6"><a href="../sobre">Sobre</a></div>
+                <div class="footer-itens pure-u-4-6"><a href="../quem-somos">Quem Somos</a></div>
+                <div class="footer-itens pure-u-4-6"><a href="../contato">Contato</a></div>
                 <div class="footer-itens img pure-u-4-6">
                     <i class="fa fa-facebook-square fa-2x"></i>
                     <i class="fa fa-twitter-square fa-2x"></i>

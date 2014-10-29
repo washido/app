@@ -40,8 +40,14 @@ var User = {
 var FacebookImport = {
     imported : 0,
 
+    /**
+     * Manda buscar todos os dados, 
+     * Seta como 0 os dados importados,
+     * Exibe a layer de importação
+     */
     getItems : function(){
         $(".importing-layer").show();
+        FacebookImport.imported = 0;
         FacebookImport.getMusics();
         FacebookImport.getMovies();
         FacebookImport.getBooks();
@@ -60,32 +66,37 @@ var FacebookImport = {
         FB.api(url, function(response) {
             var data       = response.data;
             var dataLenght = response.data.length;
-            /**
-             * Percorre todo retorno do facebook
-             */
-            for(i = 0; i < dataLenght; i++) {
-                /**
-                 * Se for uma música, adiciona ao array de musicas do usuário
-                 */
-                if (data[i].data.song) {
-                    User.musics.push({
-                        "_id"    : data[i].data.song.id,
-                        "title" : data[i].data.song.title,
-                        "url"   : data[i].data.song.url,
-                        "img"   : "https://graph.facebook.com/" + data[i].data.song.id + "/picture?height=200&width=200"
-                    });
-                }
-            }
-            FacebookImport.saveItems('musics', User.musics);
-            User.musics = [];
             
-            /**
-             * Se o tamanho for 25, pega a paginação e refaz a chamada
-             */
-            if(dataLenght == 25)
-                FacebookImport.getMusics(response.paging.next);
-            else
-                FacebookImport.imported = FacebookImport.imported + 1;
+            if (dataLenght > 0) {
+                /**
+                 * Percorre todo retorno do facebook
+                 */
+                for(i = 0; i < dataLenght; i++) {
+                    /**
+                     * Se for uma música, adiciona ao array de musicas do usuário
+                     */
+                    if (data[i].data.song) {
+                        User.musics.push({
+                            "_id"    : data[i].data.song.id,
+                            "title" : data[i].data.song.title,
+                            "url"   : data[i].data.song.url,
+                            "img"   : "https://graph.facebook.com/" + data[i].data.song.id + "/picture?height=200&width=200"
+                        });
+                    }
+                }
+                FacebookImport.saveItems('musics', User.musics);
+                User.musics = [];
+                
+                /**
+                 * Se o tamanho for 25, pega a paginação e refaz a chamada
+                 */
+                if(dataLenght == 25)
+                    FacebookImport.getMusics(response.paging.next);
+                else
+                    FacebookImport.imported++;
+            }else{
+                FacebookImport.imported++;
+            }
         });
     },
 
@@ -95,23 +106,27 @@ var FacebookImport = {
             var data       = response.data;
             var dataLenght = response.data.length;
             
-            for(i = 0; i < dataLenght; i++){
-                if (data[i].data.movie) {
-                    User.movies.push({
-                        "_id"    : data[i].data.movie.id,
-                        "title" : data[i].data.movie.title,
-                        "url" : data[i].data.movie.url,
-                        "img"   : "https://graph.facebook.com/" + data[i].data.movie.id + "/picture?height=200&width=200"
-                    });
+            if (dataLenght > 0 ) {
+                for(i = 0; i < dataLenght; i++){
+                    if (data[i].data.movie) {
+                        User.movies.push({
+                            "_id"    : data[i].data.movie.id,
+                            "title" : data[i].data.movie.title,
+                            "url" : data[i].data.movie.url,
+                            "img"   : "https://graph.facebook.com/" + data[i].data.movie.id + "/picture?height=200&width=200"
+                        });
+                    }
                 }
-            }
-            FacebookImport.saveItems('movies', User.movies);
-            User.movies = [];
+                FacebookImport.saveItems('movies', User.movies);
+                User.movies = [];
 
-            if(dataLenght == 25)
-                FacebookImport.getMovies(response.paging.next);
+                if(dataLenght == 25)
+                    FacebookImport.getMovies(response.paging.next);
+                else
+                    FacebookImport.imported++;
+            }
             else
-                FacebookImport.imported = FacebookImport.imported + 1;
+                FacebookImport.imported++;
         });
 
     },
@@ -122,28 +137,31 @@ var FacebookImport = {
             var data       = response.data;
             var dataLenght = response.data.length;
             
-            for(i = 0; i < dataLenght; i++){
-                if (data[i].data.book) {
-                    User.books.push({
-                        "_id"    : data[i].data.book.id,
-                        "title" : data[i].data.book.title,
-                        "url" : data[i].data.book.url,
-                        "img"   : "https://graph.facebook.com/" + data[i].data.book.id + "/picture?height=200&width=200"
-                    });
+            if (dataLenght > 0) {
+                for(i = 0; i < dataLenght; i++){
+                    if (data[i].data.book) {
+                        User.books.push({
+                            "_id"    : data[i].data.book.id,
+                            "title" : data[i].data.book.title,
+                            "url" : data[i].data.book.url,
+                            "img"   : "https://graph.facebook.com/" + data[i].data.book.id + "/picture?height=200&width=200"
+                        });
+                    }
                 }
-            }
-            FacebookImport.saveItems('books', User.books);
-            User.books = [];
 
-            if(dataLenght == 25)
-                FacebookImport.getMovies(response.paging.next);
-            else
-                FacebookImport.imported = FacebookImport.imported + 1;
+                FacebookImport.saveItems('books', User.books);
+                User.books = [];
+
+                if(dataLenght == 25)
+                    FacebookImport.getMovies(response.paging.next);
+                else
+                    FacebookImport.imported++;
+            }else{
+                FacebookImport.imported++;
+            }
         });
 
     },
-
-
 
     saveItems : function(type, items){
         $.ajax({
@@ -156,16 +174,15 @@ var FacebookImport = {
             }
         })
         .always(function(){
-            console.log(FacebookImport.imported);
-            if(FacebookImport.imported === 3){
+            console.log('Importados : %d, tipo: %s', FacebookImport.imported, type);
+            if(FacebookImport.imported === 3)
                 $(".importing-layer").hide();
-            }
         })
         .done(function() {
-            // alert('Dados importados com sucesso');
+            console.log("Dados importados com sucesso { " + type + " }");
         })
         .fail(function() {
-            alert('Erro ao importar dados');
+            console.log('Erro ao importar: ' + type);
         })
     },
 };
