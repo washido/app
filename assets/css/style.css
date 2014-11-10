@@ -353,3 +353,8 @@ display: block;
 .about-title{
   
 }
+
+.btn-face {
+  float: right;
+  margin-right: 5%;
+}
