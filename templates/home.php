@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <fb:login-button scope="user_actions.videos,user_actions.books,user_actions.music,user_friends" onlogin="checkLoginState();"></fb:login-button>
+                <fb:login-button class="btn-face" scope="user_actions.videos,user_actions.books,user_actions.music,user_friends" onlogin="checkLoginState();"></fb:login-button>
 
                 <div class="content">
                     <h1 class="title">What Should I<br /><span class="do_color">Do ?</span></h1>
