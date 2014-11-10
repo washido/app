@@ -160,8 +160,8 @@ $app->get('/sobre', function() use ($app){
     $app->render('sobre.php');
 });
 
-$app->get('/contato', function() use ($app){
-    $app->render('contato.php');
+$app->get('/politica-de-privacidade', function() use ($app){
+    $app->render('policy.php');
 });
 
 
