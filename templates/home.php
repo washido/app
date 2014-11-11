@@ -19,7 +19,7 @@
                 <div class="recomendacao align-center">
                     <h2 class="recomendacao-filme-titulo align-left">O Rei Leão<span class="recomendacao-filme-ano">1994</span></h2>
                     <div class="align-left recomendacao-filme-conteudo">
-                        <img src="img/rei_leao.jpg" class="recomendacao-filme-img">
+                        <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/v/t1.0-1/c0.37.320.320/p320x320/430641_10150560165422462_999155316_n.jpg?oh=c2f1e0e114f334a5b9b1d17c7a391af2&oe=54E61C61&__gda__=1423822729_2bb1edd80d1afc62e2647c823bf306a4" class="recomendacao-filme-img">
                         <div class="recomendacao-filme-content">
                             <p class="filme-descricao">Tricked into thinking that he caused the death of his own father, a young lion cub flees and abandons his destiny as the future king.</p>
 
@@ -33,7 +33,7 @@
                 <div class="recomendacao align-center">
                     <h2 class="recomendacao-filme-titulo align-left">O Rei Leão<span class="recomendacao-filme-ano">1994</span></h2>
                     <div class="align-left recomendacao-filme-conteudo">
-                        <img src="img/rei_leao.jpg" class="recomendacao-filme-img">
+                        <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/v/t1.0-1/c0.37.320.320/p320x320/430641_10150560165422462_999155316_n.jpg?oh=c2f1e0e114f334a5b9b1d17c7a391af2&oe=54E61C61&__gda__=1423822729_2bb1edd80d1afc62e2647c823bf306a4" class="recomendacao-filme-img">
                         <div class="recomendacao-filme-content">
                             <p class="filme-descricao">Tricked into thinking that he caused the death of his own father, a young lion cub flees and abandons his destiny as the future king.</p>
 
@@ -47,7 +47,7 @@
                 <div class="recomendacao align-center">
                     <h2 class="recomendacao-filme-titulo align-left">O Rei Leão<span class="recomendacao-filme-ano">1994</span></h2>
                     <div class="align-left recomendacao-filme-conteudo">
-                        <img src="img/rei_leao.jpg" class="recomendacao-filme-img">
+                        <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/v/t1.0-1/c0.37.320.320/p320x320/430641_10150560165422462_999155316_n.jpg?oh=c2f1e0e114f334a5b9b1d17c7a391af2&oe=54E61C61&__gda__=1423822729_2bb1edd80d1afc62e2647c823bf306a4" class="recomendacao-filme-img">
                         <div class="recomendacao-filme-content">
                             <p class="filme-descricao">Tricked into thinking that he caused the death of his own father, a young lion cub flees and abandons his destiny as the future king.</p>
 
