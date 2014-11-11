@@ -7,5 +7,5 @@
     </div>
     <div class="user-nome-wrap pure-u-md-1-2">Guilherme Longaray de fraga</div>
     <!-- Faltam os links -->
-    <div class="user-opcoes-wrap pure-u-md-1-3"><a href="/me/movie">Videos</a> | <a href="/me/musics">Músicas</a> | <a href="/me/book">Livros</a></div>
+    <div class="user-opcoes-wrap pure-u-md-1-3"><a href="/me/movies">Videos</a> | <a href="/me/musics">Músicas</a> | <a href="/me/books">Livros</a></div>
 </div>
