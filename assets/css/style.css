@@ -51,7 +51,7 @@ body {
 }
 
 .recomendacao-wrap {
-  display: none;
+ /* display: none; */
   overflow: scroll;
   margin-top: 1%;
   margin-left: 1%;
