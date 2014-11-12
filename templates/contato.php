@@ -2,13 +2,12 @@
  <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>What Should I Do?</title>
+      <title>What Should I Do? | Contato</title>
       
-      <link rel="stylesheet" href="assets/css/pure-min.css">
-      <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-      <link rel="stylesheet" href="assets/css/style.css">
-      <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
-      <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.1.0/pure-min.css">
+      <link rel="stylesheet" href="/assets/css/pure-min.css">
+      <link rel="stylesheet" href="/assets/css/grids-responsive-min.css"> 
+      <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+      <link rel="stylesheet" href="/assets/css/style.css">
  </head>
  <body>
     <div id="wrapper">

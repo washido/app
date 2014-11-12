@@ -150,6 +150,7 @@ $app->get('/me(/:type)', function($type = null) use ($app){
  * Páginas Institucionais:
  * - Quem Somos
  * - Sobre
+ * - Politica de Privacidade
  * - Contato
  */
 $app->get('/quem-somos', function() use ($app){
@@ -160,9 +161,43 @@ $app->get('/sobre', function() use ($app){
     $app->render('sobre.php');
 });
 
+$app->get('/contato', function() use ($app){
+    $app->render('contato.php');
+});
+
 $app->get('/politica-de-privacidade', function() use ($app){
     $app->render('policy.php');
 });
 
+
+/**
+ * Importação do CSV para popular inicialmente a base
+ */
+$app->get('/import', function() user ($app) {
+   
+    $fp = fopen('./protected/data/import.csv', 'r');
+
+    echo '<pre>';
+
+    $i = 0;
+    while ($csv = fgetcsv($fp)) {
+        $i++;
+        
+        $date = $csv[0];
+        array_shift($csv);
+        $obj = array(
+            "_id" => $i . time(),
+            "movies" => array_filter($csv),
+        );
+
+        $m   = new MongoClient();
+        $db  = $m->selectDB('washido');
+        $col = new MongoCollection($db, 'users');
+
+        $res = $col->insert($obj);
+        print_r($res);
+    }
+    
+});
 
 $app->run();
