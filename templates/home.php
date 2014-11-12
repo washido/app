@@ -96,7 +96,7 @@
                     <h2 class="recomendacao-filme-titulo align-left">
                         <%- item.title %>
                         <span class="recomendacao-filme-ano">
-                            <%- item.year %>
+                            
                         </span>
                     </h2>
                     <div class="align-left recomendacao-filme-conteudo">

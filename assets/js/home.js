@@ -33,7 +33,7 @@ $(function(){
             },
             success : function(data){
                 var view     = $('#recomendacao').html();
-                var template = _.template(view, data.items);
+                var template = _.template(view, {items : data.items});
                 
                 $('body').append(template);
                 $('body').addClass('recomendacao-visible');
