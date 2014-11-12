@@ -173,6 +173,7 @@ $app->get('/politica-de-privacidade', function() use ($app){
 /**
  * Importação do CSV para popular inicialmente a base
  */
+/*
 $app->get('/import', function() user ($app) {
    
     $fp = fopen('./protected/data/import.csv', 'r');
@@ -199,5 +200,6 @@ $app->get('/import', function() user ($app) {
     }
     
 });
+*/
 
 $app->run();
