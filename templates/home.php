@@ -11,7 +11,8 @@
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.1.0/pure-min.css">
     </head>
     <body>
-        <div class="recomendacao-wrap"> 
+        <?php 
+            /* <div class="recomendacao-wrap"> 
             <div id="btn-fechar">X</div>
             <h1 class="recomendacao-title align-left">Você pode gostar de ...</h1>
                 
@@ -56,7 +57,8 @@
 
                     </div>
                 </div>         
-        </div>
+        </div> */
+        ?>
         <div id="wrapper" class="wrapper">
 
             <div class="importing-layer">
