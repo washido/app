@@ -1,4 +1,5 @@
 $(function(){
+    
     $(document).on('mouseleave', '.btn', function() {
         $('.do_color').text("Do ?");
         $('.do_color').css("color", "#0E0E0E");
@@ -8,10 +9,12 @@ $(function(){
         $('.do_color').text("WATCH ?");
         $('.do_color').css("color", "#FF5B5B");
     });
+    
     $(document).on('mouseover', '.btn_book', function() {
         $('.do_color').text("READ ?");
         $('.do_color').css("color", "#1BCD35");
     });
+    
     $(document).on('mouseover', '.btn_music', function() {
         $('.do_color').text("LISTEN ?");
         $('.do_color').css("color", "#53A9FF");
@@ -19,6 +22,7 @@ $(function(){
 
     $(document).on('click', '.btn_film, .btn_book, .btn_music', function(){
         var self = this;
+        
         $.ajax({
             url: 'app/recommend',
             type: 'POST',
@@ -28,13 +32,11 @@ $(function(){
                 $(self).addClass('fa-spin');
             },
             success : function(data){
-                var lis = '';
-                $.each(data.items, function(i, val){
-                    lis += '<li><img src="'+ val.img +'" />' + val.title + '</li>'
-                });
-
-                $('.result .result-items').html(lis);
-                $('.result').addClass('visible');
+                var view     = $('#recomendacao').html();
+                var template = _.template(view, data.items);
+                
+                $('body').append(template);
+                $('body').addClass('recomendacao-visible');
             }
         })
         .fail(function() {
