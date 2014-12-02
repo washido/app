@@ -69,22 +69,29 @@ body {
 .user-wrap {
   background-color: rgb(59, 89, 152);
   color: #fff;
-  float: right;
-  margin: 15px 55px 0 0;
-  border: 1px solid rgb(211, 216, 232);
   height: 45px;
   text-align: left; 
-  box-shadow: 1px 1px 1px #888888;
+  padding: 0 10px 0 5px; 
+  box-shadow: -1px 0px 3px 0px rgba(55, 50, 50, 0.75);
+}
+
+.user-img-wrap {
+  width: 45px;
+  display: inline-block;
 }
 
 .user-wrap div {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  margin: 0 6px 0;
 }
-.user-opcoes-wrap, .user-opcoes-wrap a {
-  text-align: right;
+
+.user-opcoes-wrap {
+  text-align: center; 
+  float: right;
+}
+
+.user-opcoes-wrap a {
   color: #fff;
 }
 
