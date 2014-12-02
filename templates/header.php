@@ -1,4 +1,4 @@
-<fb:login-button class="btn-face" scope="user_actions.videos,user_actions.books,user_actions.music,user_friends,user_likes" onlogin="checkLoginState();"></fb:login-button>
+<!-- <fb:login-button class="btn-face" scope="user_actions.videos,user_actions.books,user_actions.music,user_friends,user_likes" onlogin="checkLoginState();"></fb:login-button> -->
 
 <!-- opcoes usuário logado  -->
 <div class="pure-g-r">
