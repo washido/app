@@ -20,6 +20,15 @@
    }
 }
 
+.recomendacao-wrap{
+  display: none;
+}
+
+.recomendacao-visible .recomendacao-wrap{
+  display: block;
+}
+
+
 body {
   background-color: #f4f4f4;
   color: #0E0E0E;

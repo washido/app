@@ -38,6 +38,10 @@ $app->group('/app', function() use ($app){
         $type  = isset($_POST['type'])   ? $_POST['type']   : NULL;
         $items = isset($_POST['items'])  ? $_POST['items']  : NULL;
 
+        if ($type === 'music')
+            $type = 'musics';
+        
+
         if ( $id !== NULL && is_array($items) && ( $type === Items::cMUSIC || $type === Items::cMOVIE || $type === Items::cBOOK) ) 
         {
             $_SESSION['id'] = $id;
@@ -109,7 +113,8 @@ $app->group('/app', function() use ($app){
 
             $diff = array();
             foreach ($i as $value) {
-                $diff[] = $value;
+                if(count($diff) < 5)
+                    $diff[] = $value;
             }
 
             $return = json_encode(array('items' => $diff, 'success' => true));

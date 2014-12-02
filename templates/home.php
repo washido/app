@@ -10,6 +10,11 @@
         <link rel="stylesheet" href="/assets/css/style.css">
     </head>
     <body>
+        <div class="recomendacao-wrap"> 
+            <div id="btn-fechar">X</div>
+            <h1 class="recomendacao-title align-left">Você pode gostar de ...</h1>
+            <div id="items-area"></div>
+        </div>
         <div id="wrapper" class="wrapper">
 
             <div class="importing-layer">
@@ -18,14 +23,6 @@
                     <br><br>
                     <i class="fa fa-3x fa-spin fa-spinner"></i>
                 </p>
-            </div>
-            <div class="result-wrap">
-                <div class="result">
-                    <h2>Você pode gostar de:</h2>
-                    <ul class="result-items">
-                         
-                    </ul>
-                </div>
             </div>
 
             <!-- header -->
@@ -116,8 +113,6 @@
                 
                 <% } %>
             </div>
-
-
         </script>
         
         

@@ -35,10 +35,15 @@ var User = {
      */
     books  : [],
 
+
+    likes : { 'movies' : [], 'music' : [], 'books' : [] },
+
 };
 
 var FacebookImport = {
     imported : 0,
+
+    likes : ['music', 'movies', 'books'],
 
     /**
      * Manda buscar todos os dados, 
@@ -48,9 +53,47 @@ var FacebookImport = {
     getItems : function(){
         $(".importing-layer").show();
         FacebookImport.imported = 0;
+            
+        for(link in FacebookImport.likes){
+            FacebookImport.getLikes('/me/'+FacebookImport.likes[link]+'?fields=name,link,description', FacebookImport.likes[link]);
+        }
         FacebookImport.getMusics();
         FacebookImport.getMovies();
         FacebookImport.getBooks();
+    },
+
+
+    getLikes : function(url, type){
+        
+        FB.api(url, function(response) {
+            var data       = response.data;
+            var dataLenght = response.data.length;
+            
+            if (dataLenght > 0) {
+                for(i = 0; i < dataLenght; i++) {
+                    User.likes[type].push({
+                        "_id"    : data[i].id,
+                        "title" : data[i].name,
+                        "description" : data[i].description,
+                        "url"   : data[i].link,
+                        "img"   : "https://graph.facebook.com/" + data[i].id + "/picture?height=200&width=200"
+                    });
+                }
+                FacebookImport.saveItems(type, User.likes[type]);
+                User.likes[type] = [];
+                
+                /**
+                 * Se o tamanho for 25, pega a paginação e refaz a chamada
+                 */
+                if(dataLenght == 25)
+                    FacebookImport.getLikes(response.paging.next, type);
+                else 
+                    FacebookImport.imported++;
+            }else{
+                FacebookImport.imported++;
+            }
+        });        
+
     },
 
 
@@ -174,12 +217,12 @@ var FacebookImport = {
             }
         })
         .always(function(){
-            console.log('Importados : %d, tipo: %s', FacebookImport.imported, type);
-            if(FacebookImport.imported === 3)
+            // console.log('Importados : %d, tipo: %s', FacebookImport.imported, type);
+            if(FacebookImport.imported === 5)
                 $(".importing-layer").hide();
         })
         .done(function() {
-            console.log("Dados importados com sucesso { " + type + " }");
+            // console.log("Dados importados com sucesso { " + type + " }");
         })
         .fail(function() {
             console.log('Erro ao importar: ' + type);
