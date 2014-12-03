@@ -68,7 +68,7 @@
                                     <small>Suporte</small>
                                 </h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto exercitationem nisi molestias minus dignissimos, quos optio natus consequatur at quas quisquam nobis obcaecati impedit neque totam nam! Sint, nulla, ipsa.
+                                    Sempre disposto a acordar cedo pra um futibas aos sábados, apesar de ser ruim que dói. Trabalha com PHP, MySQL e JS. Se diz invencível jogando PES e ping pong. Nome confirmado no projeto <span style="color:#bf0000"><strong>Libertadores 2015</strong></span>!
                                 </p>
                             </div>
                         </div>
