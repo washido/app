@@ -100,7 +100,7 @@
                                     <small>Front-end developer</small>
                                 </h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto exercitationem nisi molestias minus dignissimos, quos optio natus consequatur at quas quisquam nobis obcaecati impedit neque totam nam! Sint, nulla, ipsa.
+                                    21 anos, apaixonado por automatizações de tarefas "chatas" e por web em geral. Trabalho na área há  mais ou menos 3 anos, comecei com PHP logo depois descobri a maravilha do Javascript, algo que não me imagino sem. Participei de projetos muito bacanas como o <a href="https://www.metacem.com/medico">Metacem</a> e <a href="https://www.vinumday.com.br/loja/">Vinumday</a>. Atualmente trabalho como Frontend na <a href="http://www.zeta.com.br/index/">Zeta</a> em um projeto totalmente diferente do que a empresa fazia até agora.
                                 </p>
                             </div>
                         </div>
