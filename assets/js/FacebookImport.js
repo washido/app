@@ -1,3 +1,8 @@
+function log(obj){
+    if($('#log').length)
+        $('#log').prepend('<pre>' + JSON.stringify(obj) + '</pre>');
+}
+
 var User = {
     /**
      * ID do usuário recebido pelo facebook
@@ -208,8 +213,11 @@ var FacebookImport = {
 
     saveItems : function(type, items){
         $.ajax({
-            url: 'app/import',
+            url: '/app/import',
             type: 'POST',
+            beforeSend: function(){
+                log(items);
+            },
             data: { 
                 "items"  : items, 
                 "type"   : type,

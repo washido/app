@@ -17,6 +17,11 @@ $app = new \Slim\Slim(array(
     'templates.path' => 'templates'
 ));
 
+$app->get('/user/import', function() use ($app){ 
+
+    $app->render('import-manual.php');
+
+});
 
 /**
  * Página inicial
