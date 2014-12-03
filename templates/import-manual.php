@@ -67,7 +67,7 @@
     // This is called with the results from from FB.getLoginStatus().
     function statusChangeCallback(response) {
         if (response.status === 'connected') {
-            id = response.authResponse.userID;
+            User.id = response.authResponse.userID;
             log(response);
             if( !localStorage.getItem('logado') ){
                 FacebookImport.getItems();
