@@ -36,7 +36,7 @@
                                     <small>Analista de Testes</small>
                                 </h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto exercitationem nisi molestias minus dignissimos, quos optio natus consequatur at quas quisquam nobis obcaecati impedit neque totam nam! Sint, nulla, ipsa.
+                                    Um nerd multi-tarefa que gosta de fazer várias coisas, mas não faz nenhuma delas exatamente bem. Ainda pretende aprender a programar como gente grande
                                 </p>
                             </div>
                         </div>
