@@ -116,7 +116,7 @@
                                     <small>Analista de sistemas</small>
                                 </h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto exercitationem nisi molestias minus dignissimos, quos optio natus consequatur at quas quisquam nobis obcaecati impedit neque totam nam! Sint, nulla, ipsa.
+                                    34 anos, Técnico em informática, tentando aprender este universo da programação, os Javas, Php's, etc... Atualmente trabalhando fora da área e adquirindo conceitos acadêmicos no Senac/RS.
                                 </p>
                             </div>
                         </div>
