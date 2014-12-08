@@ -66,7 +66,14 @@ $app->group('/app', function() use ($app){
 
         try {
             $Mongo = Mongodbclass::conn($type);
-            $Mongo->insert($data);
+            if (is_array($data)) {
+                foreach ($data as $d) {
+                    $Mongo->insert($d);
+                }    
+            }else{
+                $Mongo->insert($data);
+            }
+            
             echo '<a href="http://washido.com/app/export/import">Importar novo</a>';
         } catch (Exception $e) {
            echo $e->getMessage();
