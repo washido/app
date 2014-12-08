@@ -52,7 +52,7 @@
                                     <small>Gerente de projeto</small>
                                 </h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto exercitationem nisi molestias minus dignissimos, quos optio natus consequatur at quas quisquam nobis obcaecati impedit neque totam nam! Sint, nulla, ipsa.
+                                    Waiting for it..
                                 </p>
                             </div>
                         </div>
@@ -84,7 +84,13 @@
                                     <small>Back-end developer</small>
                                 </h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto exercitationem nisi molestias minus dignissimos, quos optio natus consequatur at quas quisquam nobis obcaecati impedit neque totam nam! Sint, nulla, ipsa.
+                                    Desenvolvedor PHP com foco em soluções para gestão de telecom e
+                                    turismo pela Engage IT.
+                                    Bacharel em Design Gráfico pela Uniritter 2009, já me interessei muito
+                                    por UX e Design, mas me sinto muito mais realizado programando para
+                                    back-end.
+                                    Casado, pai de 2 filhas e só me falta morar em uma cidade litorânea
+                                    para curtir mais a vida.
                                 </p>
                             </div>
                         </div>
