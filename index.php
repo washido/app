@@ -133,7 +133,6 @@ $app->group('/app', function() use ($app){
         
         /* Percorre todos os usuários e encontra o mais próximo */
         foreach ($users as $u):
-            print_r($u);
             $intersect = sizeof( array_intersect( $u[$type], $user[$type] ) );
             $union     = sizeof( array_unique( array_merge( $u[$type], $user[$type] ) ) );
             $res       = $intersect / $union;
@@ -141,36 +140,61 @@ $app->group('/app', function() use ($app){
             
         endforeach;
 
-        /* Ordena o array de mais próximos */
-        asort($maisProximos);
-        
-        /* Posiciona o cursor no ultimo elemento */
-        end($maisProximos);
-        
-        /* Pega o indice da ultima posição do array (uid) */
-        $index = key($maisProximos);
-
-        /* Procura o usuário mais próximo */
-        $userProximo = $Mongo->findOne(array('_id' => (string)$index));
-
-        /* Verifica quais filmes o usuário mais próximo possui que eu não */
         try {
-            $diff   = array_diff( $userProximo[$type], $user[$type] );
+        
+            /**
+             * Pega o usuário mais próximo
+             * @param  Array $maisProximos Array de usuários mais próximos
+             * @return [type]               [description]
+             */
+            function getUserMaisProximo($maisProximos, $Mongo){
+                /* Ordena o array de mais próximos */
+                asort($maisProximos);
+                
+                /* Posiciona o cursor no ultimo elemento */
+                end($maisProximos);
+                
+                /* Pega o indice da ultima posição do array (uid) */
+                $index = key($maisProximos);
+
+                /* Procura o usuário mais próximo */
+                return $userProximo = $Mongo->findOne(array('_id' => (string)$index));
+            }
+
+            /* Verifica quais filmes o usuário mais próximo possui que eu não */
+
+
+            do{
+                $userProximo = getUserMaisProximo($maisProximos, $Mongo);
+                array_pop($maisProximos);
+                $diff   = array_diff( $userProximo[$type], $user[$type] );
+            }while(!is_array($diff));
+
+            $diff = array_values($diff);
+
             $Item   = Mongodbclass::conn($type);
-            
             $i = $Item->find(
                 array( "_id" =>  array('$in' => $diff ) )
             );
 
-            $diff = array();
+
+            $newDiff = array();
             foreach ($i as $value) {
-                if(count($diff) < 5)
-                    $diff[] = $value;
+                $newDiff[] = $value;
             }
 
-            $return = json_encode(array('items' => $diff, 'success' => true));
+            shuffle($newDiff);
+            $items = array();
+            foreach ($newDiff as $item) {
+                if(count($items) < 5){
+                    $items[] = $item;
+                }
+            }
+
+            $return = json_encode(array('items' => $items, 'success' => true));
             
         } catch (Exception $e) {
+            echo $e->getMessage();
             $return = json_encode(array('items' => array(), 'success' => false));
         }
             
@@ -224,7 +248,6 @@ $app->get('/contato', function() use ($app){
 $app->get('/politica-de-privacidade', function() use ($app){
     $app->render('policy.php');
 });
-
 
 /**
  * Importação do CSV para popular inicialmente a base

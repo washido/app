@@ -66,4 +66,5 @@ class User
             var_dump($e->getDocument());
         }
     }
+
 }
