@@ -97,7 +97,7 @@
                         </span>
                     </h2>
                     <div class="align-left recomendacao-filme-conteudo">
-                        <img src="<%- item.img %>" class="recomendacao-filme-img">
+                        <img src="<%= item.img %>" class="recomendacao-filme-img">
                         <div class="recomendacao-filme-content">
                             <p class="filme-descricao">
                                 Descricão

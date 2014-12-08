@@ -93,9 +93,9 @@ $app->group('/app', function() use ($app){
             $type = 'musics';
         
 
+        $_SESSION['id'] = $id;
         if ( $id !== NULL && is_array($items) && ( $type === Items::cMUSIC || $type === Items::cMOVIE || $type === Items::cBOOK) ) 
         {
-            $_SESSION['id'] = $id;
 
             $Items = new Items($type);
             $Items->setItems($items);
