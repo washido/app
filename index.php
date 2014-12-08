@@ -124,7 +124,9 @@ $app->group('/app', function() use ($app){
         
         /* Busca os dados do usuário logado */
         $user   = $Mongo->findOne(array('_id' => $userID));
-        
+        if(!is_array($user))
+            $user = array('musics' => array(),'movies' => array(),'books' => array());
+
         /* Busca todos os outros usuários do sistema, mas apenas o tipo escolhido */
         $users  = $Mongo->find(
             array("_id" => array('$ne' => $userID), $type => array('$exists' => true)), 
