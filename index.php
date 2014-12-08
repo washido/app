@@ -48,7 +48,7 @@ $app->group('/app', function() use ($app){
             foreach ($res as $item) {
                 $items[] = $item;
             }
-            echo '<textarea width="100%" height="100%">'.json_encode($item).'</textarea>';
+            echo '<textarea width="100%" height="100%">'.json_encode($items).'</textarea>';
             echo '<hr>';
         }
         else{
