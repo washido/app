@@ -35,8 +35,8 @@ $app->get('/', function() use ($app){
  */
 $app->group('/app', function() use ($app){
 
-    $app->get('/export', function() use($app){
-        $Mongo = Mongodbclass::conn('users');
+    $app->get('/export/:type', function($type) use($app){
+        $Mongo = Mongodbclass::conn($type);
 
         $res = $Mongo->find(array());
         foreach ($res as $user) {
@@ -45,6 +45,25 @@ $app->group('/app', function() use ($app){
 
         }
     });
+
+    $app->get('/export/import', function() use($app){
+        echo '<form method="POST"><textarea name="import"></textarea><br><br><input type="text" name="type" value="users" placeholder=""><br><br><input type="submit"/></form>';
+    });
+
+    
+    $app->post('/export/import', function() use($app){
+       $data  = json_decode($_POST['import'], true);
+       $type  = $_POST['type'];
+
+        try {
+            $Mongo = Mongodbclass::conn($type);
+            $Mongo->insert($data);
+            echo '<a href="http://washido.com/app/export/import">Importar novo</a>';
+        } catch (Exception $e) {
+           echo $e->getMessage();
+        }
+    });
+
 
     /**
      * Efetua importação dos dados
