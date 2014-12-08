@@ -40,9 +40,9 @@ $app->group('/app', function() use ($app){
 
         $res = $Mongo->find(array());
         foreach ($res as $user) {
-            echo '<pre>';
-            print_r($user);
-            echo '</pre>';
+            echo '<textarea>'.json_encode($user).'</textarea>';
+            echo '<hr>';
+
         }
     });
 
