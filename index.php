@@ -119,7 +119,7 @@ $app->group('/app', function() use ($app){
     
         $Mongo        = Mongodbclass::conn();
         $maisProximos = array();
-        $userID       = $_SESSION['id'];
+        $userID       = !isset($_SESSION['id']) ? $_POST['userID'] : $_SESSION['id'];
         $type         = $_POST['type'];
         
         /* Busca os dados do usuário logado */
@@ -137,7 +137,6 @@ $app->group('/app', function() use ($app){
             $union     = sizeof( array_unique( array_merge( $u[$type], $user[$type] ) ) );
             $res       = $intersect / $union;
             $maisProximos[$u['_id']] = $res;
-            
         endforeach;
 
         try {
