@@ -56,7 +56,7 @@ var FacebookImport = {
      * Exibe a layer de importação
      */
     getItems : function(){
-        $(".importing-layer").show();
+        // $(".importing-layer").show();
         FacebookImport.imported = 0;
             
         for(link in FacebookImport.likes){
