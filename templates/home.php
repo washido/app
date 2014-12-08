@@ -43,15 +43,6 @@
                     <div class="pure-g div-opcoes">
 
                         <div class="pure-u-md-1-3 div-opcao align-right">
-                            <div class="div_espacamento"></div>
-                            <a href="javascript:void(0)" data-item="musics" class="btn_music btn">
-                                <div class="pure-u-1 pure-u-md-3-5 div-music">
-                                    <i class="fa fa-music fa-5x"></i>
-                                </div>
-                            </a>
-                        </div>
-                        
-                        <div class="pure-u-md-1-3 div-opcao align-right">
                             <a href="javascript:void(0)" data-item="movies" class="btn_film btn">
                                 <div class="pure-u-1 pure-u-md-3-5 div-film">
                                     <i class="fa fa-film fa-5x"></i>
@@ -66,6 +57,16 @@
                                 </div>
                             </a>
                         </div>
+                        
+                        <div class="pure-u-md-1-3 div-opcao align-right">
+                            <div class="div_espacamento"></div>
+                            <a href="javascript:void(0)" data-item="musics" class="btn_music btn">
+                                <div class="pure-u-1 pure-u-md-3-5 div-music">
+                                    <i class="fa fa-music fa-5x"></i>
+                                </div>
+                            </a>
+                        </div>
+                        
                     </div>
                 </div>
                 <br />
