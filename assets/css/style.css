@@ -73,7 +73,7 @@ body {
 
 .recomendacao-wrap {
  /* display: none; */
-  overflow: scroll;
+  overflow: auto;
   margin-top: 1%;
   margin-left: 1%;
   width: 98%;
