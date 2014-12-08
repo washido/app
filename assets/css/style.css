@@ -134,7 +134,7 @@ a {
   margin: 10px 20px 10px 20px;
 }
 .title {
-  margin-top: 8%;
+  margin-top: 4%;
   font-size: 45px;
 }
 .h2-sobre {
@@ -534,4 +534,8 @@ display: block;
 
 .contato {
   margin: 0 auto;
+}
+
+p{
+  text-shadow: 1px 1px #fff;
 }
