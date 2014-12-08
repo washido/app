@@ -3,7 +3,8 @@
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>What Should I Do? | Contato</title>
-      
+  
+      <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">              
       <link rel="stylesheet" href="/assets/css/pure-min.css">
       <link rel="stylesheet" href="/assets/css/grids-responsive-min.css"> 
       <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
