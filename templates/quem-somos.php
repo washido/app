@@ -52,14 +52,14 @@
                                     <small>Gerente de projeto</small>
                                 </h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto exercitationem nisi molestias minus dignissimos, quos optio natus consequatur at quas quisquam nobis obcaecati impedit neque totam nam! Sint, nulla, ipsa.
+                                    Waiting for it..
                                 </p>
                             </div>
                         </div>
 
                         <div class="pure-g-r">
                             <div class="pure-u-3-8 text-right">
-                                <img src="assets/img/fraga.jpg" alt="" class="img-circle">
+                                <img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpa1/v/t34.0-12/10833855_1002577016435211_483026611_n.jpg?oh=ef5b99b7af15496431b5cabf13d5cbb2&oe=54886A46&__gda__=1418229862_55771e2f81b6ae2a58a408c2ecee7852" alt="" class="img-circle">
                             </div>
 
                             <div class="pure-u-5-8">
@@ -84,7 +84,13 @@
                                     <small>Back-end developer</small>
                                 </h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto exercitationem nisi molestias minus dignissimos, quos optio natus consequatur at quas quisquam nobis obcaecati impedit neque totam nam! Sint, nulla, ipsa.
+                                    Desenvolvedor PHP com foco em soluções para gestão de telecom e
+                                    turismo pela Engage IT.
+                                    Bacharel em Design Gráfico pela Uniritter 2009, já me interessei muito
+                                    por UX e Design, mas me sinto muito mais realizado programando para
+                                    back-end.
+                                    Casado, pai de 2 filhas e só me falta morar em uma cidade litorânea
+                                    para curtir mais a vida.
                                 </p>
                             </div>
                         </div>

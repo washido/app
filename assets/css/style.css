@@ -73,11 +73,11 @@ body {
 
 .recomendacao-wrap {
  /* display: none; */
-  overflow: scroll;
+  overflow: auto;
   margin-top: 1%;
   margin-left: 1%;
   width: 98%;
-  position: absolute;
+  position: fixed;
   z-index: 990;
   height: 96%;
   -webkit-box-shadow: -1px 0px 30px 0px rgba(55, 50, 50, 0.75);
@@ -134,7 +134,7 @@ a {
   margin: 10px 20px 10px 20px;
 }
 .title {
-  margin-top: 8%;
+  margin-top: 4%;
   font-size: 45px;
 }
 .h2-sobre {
@@ -513,9 +513,9 @@ display: block;
 
 #btn-fechar {
   cursor: pointer;
-  position: absolute;
-  top: 15px;
-  right: 15px;
+  position: fixed;
+  top: 25px;
+  right: 35px;
 
   border: 1px solid #fff;
   background:black;
@@ -534,4 +534,8 @@ display: block;
 
 .contato {
   margin: 0 auto;
+}
+
+p{
+  text-shadow: 1px 1px #fff;
 }
