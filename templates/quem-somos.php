@@ -61,7 +61,7 @@
 
                         <div class="pure-g-r">
                             <div class="pure-u-3-8 text-right">
-                                <img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpa1/v/t34.0-12/10833855_1002577016435211_483026611_n.jpg?oh=ef5b99b7af15496431b5cabf13d5cbb2&oe=54886A46&__gda__=1418229862_55771e2f81b6ae2a58a408c2ecee7852" alt="" class="img-circle">
+                                <img src="/assets/img/longaray.png" alt="" class="img-circle">
                             </div>
 
                             <div class="pure-u-5-8">
