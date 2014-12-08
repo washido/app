@@ -35,22 +35,31 @@ $app->get('/', function() use ($app){
  */
 $app->group('/app', function() use ($app){
 
-    $app->get('/export/:type', function($type) use($app){
-        $Mongo = Mongodbclass::conn($type);
-
-        $res = $Mongo->find(array());
-        foreach ($res as $user) {
-            echo '<textarea>'.json_encode($user).'</textarea>';
-            echo '<hr>';
-
-        }
-    });
-
     $app->get('/export/import', function() use($app){
         echo '<form method="POST"><textarea name="import"></textarea><br><br><input type="text" name="type" value="users" placeholder=""><br><br><input type="submit"/></form>';
     });
 
-    
+    $app->get('/export/:type', function($type) use($app){
+        $Mongo = Mongodbclass::conn($type);
+
+        $res = $Mongo->find(array());
+        if ($type == 'movies' || $type == 'musics' || $type == 'books') {
+            $items = array();
+            foreach ($res as $item) {
+                $items[] = $item;
+            }
+            echo '<textarea width="100%" height="100%">'.json_encode($item).'</textarea>';
+            echo '<hr>';
+        }
+        else{
+            foreach ($res as $user) {
+                echo '<textarea>'.json_encode($user).'</textarea>';
+                echo '<hr>';
+            }
+        }
+    });
+
+
     $app->post('/export/import', function() use($app){
        $data  = json_decode($_POST['import'], true);
        $type  = $_POST['type'];
