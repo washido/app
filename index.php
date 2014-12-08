@@ -35,6 +35,17 @@ $app->get('/', function() use ($app){
  */
 $app->group('/app', function() use ($app){
 
+    $app->get('/export', function() use($app){
+        $Mongo = Mongodbclass::conn('users');
+
+        $res = $Mongo->find(array());
+        foreach ($res as $user) {
+            echo '<pre>';
+            print_r($user);
+            echo '</pre>';
+        }
+    });
+
     /**
      * Efetua importação dos dados
      */
@@ -87,7 +98,7 @@ $app->group('/app', function() use ($app){
         
         /* Percorre todos os usuários e encontra o mais próximo */
         foreach ($users as $u):
-            // print_r($u);
+            print_r($u);
             $intersect = sizeof( array_intersect( $u[$type], $user[$type] ) );
             $union     = sizeof( array_unique( array_merge( $u[$type], $user[$type] ) ) );
             $res       = $intersect / $union;
