@@ -77,7 +77,7 @@ body {
   margin-top: 1%;
   margin-left: 1%;
   width: 98%;
-  position: absolute;
+  position: fixed;
   z-index: 990;
   height: 96%;
   -webkit-box-shadow: -1px 0px 30px 0px rgba(55, 50, 50, 0.75);
