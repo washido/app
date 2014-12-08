@@ -17,6 +17,7 @@
         </div>
         <div id="wrapper" class="wrapper">
 
+            <?php /*
             <div class="importing-layer">
                 <p>
                     Importando dados
@@ -24,6 +25,7 @@
                     <i class="fa fa-3x fa-spin fa-spinner"></i>
                 </p>
             </div>
+            */ ?>
 
             <!-- header -->
             <div id="header">
