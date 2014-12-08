@@ -169,7 +169,7 @@ $app->group('/app', function() use ($app){
                 $userProximo = getUserMaisProximo($maisProximos, $Mongo);
                 array_pop($maisProximos);
                 $diff   = array_diff( $userProximo[$type], $user[$type] );
-            }while(!is_array($diff));
+            }while(empty($diff));
 
             $diff = array_values($diff);
 
